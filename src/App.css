@@ -1,0 +1,16 @@
+body {
+  background-color: #eeeeee;
+  margin: 1rem;
+}
+
+.App {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+.bookList {
+  max-width: 1000px;
+  background-color: black;
+  color: white;
+  margin: auto;
+  padding: 1rem;
+}
