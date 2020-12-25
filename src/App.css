@@ -8,9 +8,25 @@ body {
 }
 
 .bookList {
-  max-width: 1000px;
-  background-color: black;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-gap: 1rem;
   color: white;
   margin: auto;
   padding: 1rem;
+}
+
+.book {
+  background-color: white;
+  color: black;
+  margin: auto;
+  padding: 2rem 4rem;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  width: 300px;
+  height: 100px;
+}
+
+.book:hover {
+  box-shadow: 0px 20px 50px 0 rgba(0, 0, 0, 0.1);
 }

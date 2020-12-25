@@ -6,6 +6,7 @@ import "./App.css";
 
 //Components
 import BookList from './components/BookList';
+import AddBook from './components/AddBook';
 
 
 /**
@@ -24,6 +25,7 @@ export default class App extends Component {
         <div className="App">
           <h1>Chaitu's Reading list</h1>
           <BookList/>
+          <AddBook/>
         </div>
       </ApolloProvider>
 
