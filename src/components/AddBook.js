@@ -1,22 +1,8 @@
 import React from "react";
-import {gql} from "apollo-boost";
 import {graphql} from "react-apollo";
+import {getAuthorsQuery} from "../queries/queries";
 
 
-/**
- * GraphQL Queries to fetch the data from the mlab
- */
-const getAuthorsQuery = gql`
-
-    {
-        authors{
-            name,
-            age,
-            id
-        }
-    }
-
-`
 
 
 
@@ -24,8 +10,27 @@ const Addbook = ({data}) => {
 
     const {authors} = data;
 
+    const displayAuthors = ()=>{
+        if(data.loading)
+            return null;
+
+        else if (data.error)
+            return <p>Unable to load authors</p>
+
+        else
+        {
+            return(
+                authors.map((author)=>(
+                    <option key={author.id}>{author.name}</option>
+                ))
+            );
+        }
+    }
+
+
     return(
         <div className="addBook">
+            
             <div className="field">
                 <label>Book name:</label>
                 <input type="text" name="bookname"/>
@@ -40,11 +45,10 @@ const Addbook = ({data}) => {
                 <label>Author name:</label>
                 <select>
                     <option>Select Author</option>
-                    {authors.map((author)=>(
-                        <option>{author.name}</option>
-                    ))}
+                    {displayAuthors()}
                 </select>
             </div>
+            <button className="btn">+</button>
         </div>
     );
 }

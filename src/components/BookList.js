@@ -1,21 +1,7 @@
 import React from "react";
-import {gql} from "apollo-boost";
 import {graphql} from "react-apollo";
+import {getBooksQuery} from "../queries/queries";
 
-
-/**
- * GraphQL Queries to fetch the data from the mlab
- */
-const getBooksQuery = gql`
-
-    {
-        books{
-            name,
-            id
-        }
-    }
-
-`
 
 const BookList = ({data}) => {
 
