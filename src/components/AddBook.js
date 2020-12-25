@@ -1,16 +1,15 @@
-import React from "react";
+import React, { Component } from 'react'
 import {graphql} from "react-apollo";
 import {getAuthorsQuery} from "../queries/queries";
 
 
 
 
+export class AddBook extends Component {
 
-const Addbook = ({data}) => {
-
-    const {authors} = data;
-
-    const displayAuthors = ()=>{
+    displayAuthors = ()=>{
+        const data = this.props.data;
+        console.log(data);
         if(data.loading)
             return null;
 
@@ -20,16 +19,16 @@ const Addbook = ({data}) => {
         else
         {
             return(
-                authors.map((author)=>(
+                data.authors.map((author)=>(
                     <option key={author.id}>{author.name}</option>
                 ))
             );
         }
     }
 
-
-    return(
-        <div className="addBook">
+    render() {
+        return (
+            <div className="addBook">
             
             <div className="field">
                 <label>Book name:</label>
@@ -45,12 +44,13 @@ const Addbook = ({data}) => {
                 <label>Author name:</label>
                 <select>
                     <option>Select Author</option>
-                    {displayAuthors()}
+                    {this.displayAuthors()}
                 </select>
             </div>
             <button className="btn">+</button>
         </div>
-    );
+        )
+    }
 }
 
-export default graphql(getAuthorsQuery)(Addbook);
+export default graphql(getAuthorsQuery)(AddBook);
