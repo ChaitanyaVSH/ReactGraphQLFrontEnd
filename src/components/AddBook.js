@@ -11,7 +11,8 @@ const getAuthorsQuery = gql`
     {
         authors{
             name,
-            age
+            age,
+            id
         }
     }
 
@@ -20,11 +21,30 @@ const getAuthorsQuery = gql`
 
 
 const Addbook = ({data}) => {
-    console.log(data.authors);
+
+    const {authors} = data;
 
     return(
-        <div>
+        <div className="addBook">
+            <div className="field">
+                <label>Book name:</label>
+                <input type="text" name="bookname"/>
+            </div>
 
+            <div className="field">
+                <label>Genre:</label>
+                <input type="text" name="bookname"/>
+            </div>
+
+            <div className="field">
+                <label>Author name:</label>
+                <select>
+                    <option>Select Author</option>
+                    {authors.map((author)=>(
+                        <option>{author.name}</option>
+                    ))}
+                </select>
+            </div>
         </div>
     );
 }
