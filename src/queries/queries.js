@@ -26,7 +26,7 @@ const getBooksQuery = gql`
 
 const getBookQuery = gql`
 
-   query ($id: ID) {
+   query($id: ID) {
        book(id: $id){
            id
            name
@@ -36,8 +36,8 @@ const getBookQuery = gql`
                name
                age
                books{
-                   id
                    name
+                   id
                }
            }
        }
