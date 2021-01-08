@@ -43,7 +43,13 @@ export class AddBook extends Component {
     submitHandler = (event) => {
 
         event.preventDefault();
-        this.props.addBookMutation()
+        this.props.addBookMutation({
+            variables: {
+                name: this.state.bookname,
+                genre: this.state.genre,
+                authorid: this.state.authorid
+            }
+        })
     }
 
     render() {
