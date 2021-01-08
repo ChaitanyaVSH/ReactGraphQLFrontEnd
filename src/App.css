@@ -16,6 +16,10 @@ body {
   padding: 1rem;
 }
 
+#bookDetails {
+  color: black;
+}
+
 .book {
   background-color: white;
   color: black;
