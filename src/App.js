@@ -23,7 +23,7 @@ export default class App extends Component {
 
       <ApolloProvider client={apolloClient}>
         <div className="App">
-          <h1>Chaitu's Reading list</h1>
+          <h1 className="heading">Chaitu's Reading list</h1>
           <BookList/>
           <AddBook/>
         </div>

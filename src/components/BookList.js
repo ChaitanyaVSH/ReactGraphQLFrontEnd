@@ -23,6 +23,7 @@ const BookList = ({data}) => {
 
     else
         return(
+            <div className="bookWrapper">
             <div className="bookList">
                 {books.map((book)=>(
 
@@ -49,8 +50,11 @@ const BookList = ({data}) => {
                         <h1>{book.name}</h1>
                     </div>
                 ))}
-                <BookDetails bookid={currentBookId}/>
+                {/* <BookDetails bookid={currentBookId}/> */}
             </div>
+            <BookDetails bookid={currentBookId}/>
+            </div>
+
         );
 }
 
